@@ -23,18 +23,10 @@ public class StudentRegistrationFormWithPageObjects extends TestBase {
                         .setFirstName("Valera")
                         .setLastName("Petrov")
                         .setUserEmail("valerka@gmail.com")
-                        .setGender("Male");
+                        .setGender("Male")
+                        .setUserNumber("1122334455")
+                        .setBirthDate("29","January", "1995");
 
-        // вводим номер телефона 10 цифр
-        $("#userNumber").setValue("1122334455");
-
-        // вводим дату рождения 29.01.1995
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").click();
-        $(byText("January")).click();
-        $(".react-datepicker__year-select").click();
-        $(byText("1995")).click();
-        $(".react-datepicker__day--029:not(.react-datepicker__day--outside-month)").click();
 
         // выбираем предмет для изучения
         $("#subjectsInput").setValue("Computer Science").click();
