@@ -1,5 +1,5 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+package com.demoqa.tests;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -9,13 +9,8 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class StudentRegistrationForm {
+public class StudentRegistrationFormWithPageObjects extends TestBase {
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1980x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
 
     @Test
     void StudentRegistrationFormTests() {
@@ -23,21 +18,12 @@ public class StudentRegistrationForm {
         // загружаем файл с фото
         File file = new File("src/test/resources/photovalera.jpg");
 
-        // открываем нужный сайт и выполняем проверку по названию заголовка "Student Registration Form"
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 
-        // убрать рекламу
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-
-        // заполняем форму студента: Name (First Name, Last Name) и Email
-        $("#firstName").setValue("Valera");
-        $("#lastName").setValue("Petrov");
-        $("#userEmail").setValue("valerka@gmail.com");
-
-        // выбираем пол
-        $("#genterWrapper").$(byText("Male")).click();
+        registrationPage.openPage()
+                        .setFirstName("Valera")
+                        .setLastName("Petrov")
+                        .setUserEmail("valerka@gmail.com")
+                        .setGender("Male");
 
         // вводим номер телефона 10 цифр
         $("#userNumber").setValue("1122334455");
