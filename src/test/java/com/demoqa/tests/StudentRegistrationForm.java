@@ -20,7 +20,7 @@ public class StudentRegistrationForm {
     }
 
     @Test
-    void StudentRegistrationFormTests() {
+    void studentRegistrationFormTests() {
 
         // загружаем файл с фото
         File file = new File("src/test/resources/photovalera.jpg");

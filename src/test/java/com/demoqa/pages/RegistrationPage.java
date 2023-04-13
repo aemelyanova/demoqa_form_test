@@ -36,10 +36,14 @@ public class RegistrationPage {
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
-
         formHeaderText.shouldHave(text("Student Registration Form"));
-        executeJavaScript("$('#fixedban').remove()");
+
+        return this;
+    }
+
+    public RegistrationPage removeFooter() {
         executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
 
         return this;
     }

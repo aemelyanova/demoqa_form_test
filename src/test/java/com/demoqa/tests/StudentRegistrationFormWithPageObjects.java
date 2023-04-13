@@ -6,10 +6,11 @@ import org.junit.jupiter.api.Test;
 public class StudentRegistrationFormWithPageObjects extends TestBase {
 
     @Test
-    void StudentRegistrationFormTests() {
+    void studentRegistrationFormTests() {
 
 
         registrationPage.openPage()
+                .removeFooter()
                 .setFirstName("Valera")
                 .setLastName("Petrov")
                 .setUserEmail("valerka@gmail.com")
