@@ -11,56 +11,56 @@ import java.util.*;
 
 public class RandomUtils {
 
-    private static Faker faker = new Faker(new Locale("en"));
-    static String[] state = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"},
+    private Faker faker = new Faker(new Locale("en"));
+    String[] state = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"},
             cityNCR = {"Delhi", "Gurgaon", "Noida"},
             cityUttarPradesh = {"Agra", "Lucknow", "Merrut"},
             cityHaryana = {"Karnal", "Panipat"},
             cityRajasthan = {"Jaipur", "Jaiselmer"};
 
 
-    public static String getRandomFirstName() {
+    public String getRandomFirstName() {
         return new Faker().name().firstName();
     }
 
-    public static String getRandomLastName() {
+    public String getRandomLastName() {
         return new Faker().name().lastName();
     }
 
-    public static String getRandomEmail() {
+    public String getRandomEmail() {
         return new Faker().internet().emailAddress();
     }
 
-    public static Genders getRandomGender() {
+    public Genders getRandomGender() {
         return faker.options().option(Genders.values());
     }
 
-    public static String getRandomPhone() {
+    public String getRandomPhone() {
         return new Faker().number().digits(10);
     }
 
-    public static String[] getRandomBirthday(int minAge, int maxAge) {
+    public String[] getRandomBirthday(int minAge, int maxAge) {
         String formattedDate = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH).format(faker.date().birthday(minAge, maxAge));
         return formattedDate.split(" ");
     }
 
-    public static Subjects getRandomSubjects() {
+    public Subjects getRandomSubjects() {
         return faker.options().option(Subjects.values());
     }
 
-    public static Hobbies getRandomHobbies() {
+    public Hobbies getRandomHobbies() {
         return faker.options().option(Hobbies.values());
     }
 
-    public static String getRandomAddress() {
+    public String getRandomAddress() {
         return new Faker().address().fullAddress();
     }
 
-    public static String getRandomState() {
+    public String getRandomState() {
         return faker.options().option(state);
     }
 
-    public static String getRandomCityAndStates(String state) {
+    public String getRandomCityAndStates(String state) {
         String city = null;
         switch (state) {
             case "NCR":

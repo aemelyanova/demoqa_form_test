@@ -6,26 +6,24 @@ import com.demoqa.data.Hobbies;
 import com.demoqa.data.Subjects;
 import org.junit.jupiter.api.Test;
 
-import static com.demoqa.utils.RandomUtils.*;
-
 
 public class RegistrationFormPage extends TestBase {
     @Test
     public void fillInRegistrationForm() {
 
 
-        String firstName = getRandomFirstName();
-        String lastName = getRandomLastName();
-        String email = getRandomEmail();
-        Genders genders = getRandomGender();
-        String phoneNumber = getRandomPhone();
-        String[] dateBirthday = getRandomBirthday(17, 70);
-        Subjects subjects = getRandomSubjects();
-        Hobbies hobbies = getRandomHobbies();
+        String firstName = randomUtils.getRandomFirstName();
+        String lastName = randomUtils.getRandomLastName();
+        String email = randomUtils.getRandomEmail();
+        Genders genders = randomUtils.getRandomGender();
+        String phoneNumber = randomUtils.getRandomPhone();
+        String[] dateBirthday = randomUtils.getRandomBirthday(17, 70);
+        Subjects subjects = randomUtils.getRandomSubjects();
+        Hobbies hobbies = randomUtils.getRandomHobbies();
         String picture = "photovalera.jpg";
-        String address = getRandomAddress();
-        String state = getRandomState();
-        String city = getRandomCityAndStates(state);
+        String address = randomUtils.getRandomAddress();
+        String state = randomUtils.getRandomState();
+        String city = randomUtils.getRandomCityAndStates(state);
 
 
         registrationPage.openPage()
