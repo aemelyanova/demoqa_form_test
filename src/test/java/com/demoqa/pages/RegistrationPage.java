@@ -1,8 +1,12 @@
 package com.demoqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.demoqa.data.Genders;
+import com.demoqa.data.Hobbies;
+import com.demoqa.data.Subjects;
 import com.demoqa.pages.components.CalendarComponent;
 import com.demoqa.pages.components.ResultsModal;
+
 
 
 import static com.codeborne.selenide.Condition.text;
@@ -20,7 +24,7 @@ public class RegistrationPage {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
-            gender = $("#genterWrapper"),
+            genderInput = $("#genterWrapper"),
             userNumberInput = $("#userNumber"),
             dateOfBirthInput = $("#dateOfBirthInput"),
             subjectsInput = $("#subjectsInput"),
@@ -66,8 +70,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setGender(String value) {
-        gender.$(byText(value)).click();
+    public RegistrationPage setGender(Genders value) {
+        genderInput.$(byText(value.toString())).click();
 
         return this;
     }
@@ -85,15 +89,15 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setSubject(String value) {
-        subjectsInput.setValue(value).click();
+    public RegistrationPage setSubject(Subjects value) {
+        subjectsInput.setValue(value.toString()).click();
         subjectsAutoMenu.click();
 
         return this;
     }
 
-    public RegistrationPage setHobbies(String value) {
-        hobbiesInput.$(byText(value)).click();
+    public RegistrationPage setHobbies(Hobbies value) {
+        hobbiesInput.$(byText(value.toString())).click();
 
         return this;
     }
