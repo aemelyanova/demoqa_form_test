@@ -1,4 +1,4 @@
-package utils;
+package com.demoqa.utils;
 
 import com.demoqa.data.Genders;
 import com.demoqa.data.Hobbies;

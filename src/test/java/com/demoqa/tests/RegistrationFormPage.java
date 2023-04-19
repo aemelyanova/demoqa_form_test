@@ -6,7 +6,7 @@ import com.demoqa.data.Hobbies;
 import com.demoqa.data.Subjects;
 import org.junit.jupiter.api.Test;
 
-import static utils.RandomUtils.*;
+import static com.demoqa.utils.RandomUtils.*;
 
 
 public class RegistrationFormPage extends TestBase {
