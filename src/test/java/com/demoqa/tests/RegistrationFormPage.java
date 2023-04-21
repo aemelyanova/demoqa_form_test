@@ -8,23 +8,22 @@ import org.junit.jupiter.api.Test;
 
 
 public class RegistrationFormPage extends TestBase {
+
+    String firstName = randomUtils.getRandomFirstName();
+    String lastName = randomUtils.getRandomLastName();
+    String email = randomUtils.getRandomEmail();
+    Genders genders = randomUtils.getRandomGender();
+    String phoneNumber = randomUtils.getRandomPhone();
+    String[] dateBirthday = randomUtils.getRandomBirthday(17, 70);
+    Subjects subjects = randomUtils.getRandomSubjects();
+    Hobbies hobbies = randomUtils.getRandomHobbies();
+    String picture = "photovalera.jpg";
+    String address = randomUtils.getRandomAddress();
+    String state = randomUtils.getRandomState();
+    String city = randomUtils.getRandomCityAndStates(state);
+
     @Test
     public void fillInRegistrationForm() {
-
-
-        String firstName = randomUtils.getRandomFirstName();
-        String lastName = randomUtils.getRandomLastName();
-        String email = randomUtils.getRandomEmail();
-        Genders genders = randomUtils.getRandomGender();
-        String phoneNumber = randomUtils.getRandomPhone();
-        String[] dateBirthday = randomUtils.getRandomBirthday(17, 70);
-        Subjects subjects = randomUtils.getRandomSubjects();
-        Hobbies hobbies = randomUtils.getRandomHobbies();
-        String picture = "photovalera.jpg";
-        String address = randomUtils.getRandomAddress();
-        String state = randomUtils.getRandomState();
-        String city = randomUtils.getRandomCityAndStates(state);
-
 
         registrationPage.openPage()
                 .removeFooter()

@@ -46,6 +46,7 @@ public class RandomUtils {
 
     public Subjects getRandomSubjects() {
         return faker.options().option(Subjects.values());
+
     }
 
     public Hobbies getRandomHobbies() {
