@@ -7,6 +7,7 @@ import com.demoqa.data.Subjects;
 import org.junit.jupiter.api.Test;
 
 
+
 public class RegistrationFormPage extends TestBase {
 
     String firstName = randomUtils.getRandomFirstName();

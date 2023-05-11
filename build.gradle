@@ -10,13 +10,25 @@ repositories {
 }
 
 dependencies {
-    testImplementation (
+    testImplementation(
             "com.codeborne:selenide:6.12.3",
             "com.github.javafaker:javafaker:1.0.2",
             "org.junit.jupiter:junit-jupiter:5.8.2",
             "org.slf4j:slf4j-simple:1.7.29")
 }
-
+tasks.withType(Test) {
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
 test {
     useJUnitPlatform()
+}
+task simple_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("simple")
+    }
 }
