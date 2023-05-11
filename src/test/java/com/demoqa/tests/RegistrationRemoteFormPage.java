@@ -6,8 +6,8 @@ import com.demoqa.data.Subjects;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class RegistrationRemoteFormPage extends RemoteTestBase {
 
+public class RegistrationRemoteFormPage extends RemoteTestBase {
 
     String firstName = randomUtils.getRandomFirstName();
     String lastName = randomUtils.getRandomLastName();
