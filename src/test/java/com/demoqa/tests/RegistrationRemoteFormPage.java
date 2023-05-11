@@ -3,6 +3,9 @@ package com.demoqa.tests;
 import com.demoqa.data.Genders;
 import com.demoqa.data.Hobbies;
 import com.demoqa.data.Subjects;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -26,8 +29,10 @@ public class RegistrationRemoteFormPage extends RemoteTestBase {
     String city = randomUtils.getRandomCityAndStates(state);
 
     @Test
+    @Owner("aemelyanova")
+    @Severity(SeverityLevel.BLOCKER)
     @Tag("remote")
-    @DisplayName("Заолнение регистрационной формы")
+    @DisplayName("Заполнение регистрационной формы")
     public void fillInRegistrationForm() {
 
         step("Открываем страницу", () -> {

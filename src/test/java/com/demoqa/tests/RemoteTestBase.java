@@ -43,6 +43,7 @@ public class RemoteTestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
 }
 
