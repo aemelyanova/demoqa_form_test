@@ -3,6 +3,7 @@ package com.demoqa.tests;
 import com.demoqa.data.Genders;
 import com.demoqa.data.Hobbies;
 import com.demoqa.data.Subjects;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -26,6 +27,7 @@ public class RegistrationRemoteFormPage extends RemoteTestBase {
 
     @Test
     @Tag("remote")
+    @DisplayName("Заолнение регистрационной формы")
     public void fillInRegistrationForm() {
 
         step("Открываем страницу", () -> {
@@ -39,7 +41,7 @@ public class RegistrationRemoteFormPage extends RemoteTestBase {
             registrationPage.setLastName(lastName);
         });
         step("Ввод email", () -> {
-            registrationPage.setLastName(lastName);
+            registrationPage.setUserEmail(email);
         });
         step("Выбор пола", () -> {
             registrationPage.setGender(genders);
