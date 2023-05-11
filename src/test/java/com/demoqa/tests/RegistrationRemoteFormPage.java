@@ -55,8 +55,15 @@ public class RegistrationRemoteFormPage extends RemoteTestBase {
         step("Выбрать предмет", () -> {
             registrationPage.setSubject(subjects);
         });
+        step("Выбрать хобби", () ->
+        {
+            registrationPage.setHobbies(hobbies);
+        });
         step("Загрузить фото", () -> {
             registrationPage.setPicture(picture);
+        });
+        step("Ввести адрес", () -> {
+            registrationPage.setAddress(address);
         });
         step("Выбрать штат и город", () -> {
             registrationPage.setState(state)
