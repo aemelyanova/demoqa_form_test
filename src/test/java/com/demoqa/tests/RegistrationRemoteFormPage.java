@@ -32,6 +32,7 @@ public class RegistrationRemoteFormPage extends RemoteTestBase {
     @Owner("aemelyanova")
     @Severity(SeverityLevel.BLOCKER)
     @Tag("remote")
+    @Tag("blocker")
     @DisplayName("Заполнение регистрационной формы")
     public void fillInRegistrationForm() {
 
