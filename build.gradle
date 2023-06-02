@@ -13,7 +13,9 @@ repositories {
 def selenideVersion = "6.13.0",
     allureVersion = "2.21.0",
     slf4jVersion = "2.0.7",
-    jUnitVersion = "5.9.3"
+    jUnitVersion = "5.9.3",
+    webDriverVersion = "5.3.3",
+    ownerVersion = "1.0.12"
 
 allure {
     report {
@@ -35,7 +37,9 @@ dependencies {
             "com.github.javafaker:javafaker:1.0.2",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "org.junit.jupiter:junit-jupiter:$jUnitVersion",
-            "org.slf4j:slf4j-simple:$slf4jVersion"
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "io.github.bonigarcia:webdrivermanager:$webDriverVersion",
+            "org.aeonbits.owner:owner:$ownerVersion"
     )
 
 }

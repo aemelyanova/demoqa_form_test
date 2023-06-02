@@ -1,4 +1,4 @@
-package com.demoqa.tests;
+package com.demoqa.tests.registration_form;
 
 
 import com.demoqa.data.Genders;

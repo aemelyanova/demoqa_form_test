@@ -2,10 +2,12 @@ package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.demoqa.config.WebDriverConfig;
 import com.demoqa.helpers.Attach;
 import com.demoqa.pages.RegistrationPage;
 import com.demoqa.utils.RandomUtils;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,24 +19,30 @@ public class RemoteTestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     RandomUtils randomUtils = new RandomUtils();
 
+    static WebDriverConfig webDriverConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
+
     @BeforeAll
     static void configurationSiteDemoQa() {
 
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");
-        Configuration.browserSize = System.getProperty("browserSize", "1980x1080");
-        Configuration.browserVersion = System.getProperty("browserVersion", "100.0");
-        Configuration.remote = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-        Configuration.browserPosition = "0x0";
-        Configuration.pageLoadStrategy = "eager";
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
+        Configuration.browser = webDriverConfig.getBrowser();
+        Configuration.baseUrl = webDriverConfig.getBaseUrl();
+        Configuration.browserSize = webDriverConfig.getBrowserSize();
+        Configuration.browserVersion = webDriverConfig.getBrowserVersion();
+        Configuration.browserPosition = webDriverConfig.getBrowserPosition();
+        Configuration.pageLoadStrategy = webDriverConfig.getPageLoadStrategy();
 
-        Configuration.browserCapabilities = capabilities;
+        if (webDriverConfig.getRemote()) {
+            Configuration.remote = webDriverConfig.getRemoteUrl();
+
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
+
+            Configuration.browserCapabilities = capabilities;
+        }
     }
 
     @BeforeEach
@@ -50,6 +58,3 @@ public class RemoteTestBase {
         Attach.addVideo();
     }
 }
-
-
-
